@@ -15,26 +15,26 @@ print (e)
 def inputDate(inDate):
     '''Input the date for search'''
     format='%d/%m/%Y'
-    sDate=inDate
+    startDate=inDate
     
     try:
-        sDate=datetime.strptime(sDate,format)
+        startDate=datetime.strptime(startDate,format)
     except:
         print("Date is not in desired format [DD-MM-YYYY]")
     
-    day=sDate.day
+    day=startDate.day
     
-    monthNum=str(sDate.month)
+    month=str(startDate.month)
     
-    datetime_object = datetime.strptime(monthNum, "%m")
+    datetime_object = datetime.strptime(month, "%m")
     
     month_name = datetime_object.strftime("%b")
     
-    year=sDate.year
+    year=startDate.year
     
     today=datetime.today()
     
-    if sDate < today:
+    if startDate < today:
         print("Selected a future date.")
         contInput()
     
@@ -90,7 +90,7 @@ def parseURL():
     adult=input("Enter the number of Adults who are going to travel: ")
     child=input("Enter the number of Children going to travel: ")
     infant=input("number of Infants: ")
-    return origin,destination,tInDate,adults,child,infant
+    return airport,destination,tInDate,adult,child,infant
 
 def scrape(url):    
     headers = {
