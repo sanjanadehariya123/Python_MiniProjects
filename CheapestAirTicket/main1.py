@@ -58,7 +58,7 @@ def inputDate(inDate):
                 print("The date entered is {}th day of {} in {}. \n".format(day,month_name,year))
                 contInput()
     
-    return str(day), str(monthNum), str(year)
+    return str(day), str(month), str(year)
 
 def contInput():
     '''Check to Continue'''
@@ -83,14 +83,14 @@ def contInput():
                     contInput()
 
 def parseURL():
-    tInDate=input("Enter the date on which you have to travel [DD/MM/YYYY]: ")
-    tInDay,tInMonth,tInYear=inputDate(tInDate)
+    travelInDate=input("Enter the date on which you have to travel [DD/MM/YYYY]: ")
+    travelInDay,travelInMonth,travelInYear=inputDate(travelInDate)
     airport=input("Enter the code for airport from where you are gonna start the journey: ")
     destination=input("Enter the code for Destination Airport : ")
     adult=input("Enter the number of Adults who are going to travel: ")
     child=input("Enter the number of Children going to travel: ")
     infant=input("number of Infants: ")
-    return airport,destination,tInDate,adult,child,infant
+    return airport,destination,travelInDate,adult,child,infant
 
 def scrape(url):    
     headers = {
