@@ -13,16 +13,19 @@ def inputDate(inDate):
     '''Input the date for search'''
     format='%d-%m-%Y'
     startDate=inDate
+    
     try:
         startDate=datetime.strptime(startDate,format)
     except:
         print("Date is not in desired format [DD-MM-YYYY]")
+    
     day=startDate.day
     month=str(startDate.month)
     datetime_object = datetime.strptime(month, "%m")
     month_name = datetime_object.strftime("%b")
     year=startDate.year
     today=datetime.today()
+    
     if startDate < today:
         print("Selected a future date for booking.")
         contInput()
@@ -41,8 +44,7 @@ def inputDate(inDate):
             else:
                 print("The date entered is {}th day of {} in {}. \n".format(day,month_name,year))
                 contInput()
-    #day=f"{day:02d}"
-    #monthNum=f"{int(monthNum):02d}"
+    
     return str(day), str(month), str(year)
 
 def contInput():
@@ -65,9 +67,9 @@ def contInput():
 
 def paerseURL():
     checkInDate=input("Enter the Checkin Date [DD-MM-YYYY]: ")
-    checkInDay,cInMonth,cInYear=inputDate(cInDate)
+    checkInDay,checkInMonth,checkInYear=inputDate(checkInDate)
     checkOutDate=input("Enter the Checkout Date [DD-MM-YYYY]: ")
-    checkOutDay,cOutMonth,cOutYear=inputDate(cOutDate)
+    checkOutDay,checkOutMonth,checkOutYear=inputDate(checkOutDate)
     location=input("Enter the location: ")
     adults=input("Enter the number of Adults: ")
     child=input("Enter the number of Children: ")
